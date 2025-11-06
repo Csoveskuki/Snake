@@ -47,18 +47,23 @@ h1 strong {
 
         const fps = 15;
         const tileSize = 50;
-        const tileCountX = canvas.width / tileSize;
-        const tileCountY = canvas.height / tileSize;
+        const tileCountX = canvas.width / tileSize; 
+        const tileCountY = canvas.height / tileSize; 
 
         let score = 0;
 
-        let snakeSpeed = tileSize;
-        let snakePosX = 0;
-        let snakePosY = canvas.height / 2;
 
+        // pozicia a pohyb
+        let snakeSpeed = tileSize; 
+        let snakePosX = 0; 
+        let snakePosY = canvas.height / 2; 
+
+
+        // uvodny smer
         let velocityX = 1;
         let velocityY = 0;
 
+        // chvost
         let tail = [];
         let snakeLength = 4;
 
@@ -96,6 +101,7 @@ h1 strong {
             snakePosY = canvas.height;
         }
 
+        // snake collision
         tail.forEach((snakePart) => {
             if (snakePosX === snakePart.x && snakePosY === snakePart.y) {
                 gameOver();        
@@ -141,6 +147,7 @@ h1 strong {
         ctx.fillRect(x, y, width, height);
     }
 
+    // generate food
     function resetFood() {
         if (snakeLength === tileCountX * tileCountY) {
             gameOver();
